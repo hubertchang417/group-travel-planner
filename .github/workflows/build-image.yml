@@ -2,7 +2,7 @@ name: Build and push Docker images
 
 on:
   push:
-    branches: [hub-dev]
+    branches: [hc-dev]
   workflow_dispatch:
 
 permissions:
@@ -51,7 +51,7 @@ jobs:
           images: ${{ vars.DOCKERHUB_USERNAME }}/dev
           tags: |
             type=sha,format=long
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/hub-dev' }}
+            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/hc-dev' }}
 
       - name: Build and push
         uses: docker/build-push-action@v7
