@@ -50,8 +50,7 @@ jobs:
         with:
           images: ${{ secrets.DOCKERHUB_USERNAME }}/dev
           tags: |
-            type=sha,format=long
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/hc-dev' }}
+            type=raw,value=${{ matrix.service }}-latest,enable=${{ github.ref == 'refs/heads/hc-dev' }}
 
       - name: Build and push
         uses: docker/build-push-action@v7
